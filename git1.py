@@ -7,27 +7,27 @@ import collections
 import pandas as pd
 
 # ouR-GWJzqDUD7NBUPHWb
-gl = gitlab.Gitlab(url='http://192.168.2.182:9000/', private_token='o4r9GFrKRexTkZbcrznk', timeout=60)
+gl = gitlab.Gitlab(url='http://XXX.XXX.X.XXX:9000/', private_token='XXXXXXXX', timeout=60)
 
 projectn = {}
 
 # 查所有项目id
 
 for i in gl.projects.list(all=True, as_list=False):
-    name = str(i.name)+'蒋康'
+    name = str(i.name)+'XX'
     id = str(i.id)
     projectn.update({i.name: i.id})
     projecta = pd.DataFrame(list(projectn.items()))
     projecta.columns = ['project', 'id']
     #
-    # with open(r'C:\Users\DELL\Desktop\孔繁阳\git统计\Users.txt', 'a') as f:
+    # with open(r'C:\Users\DELL\Desktop\XXX\git统计\Users.txt', 'a') as f:
     #     f.write(name+'\t'+id+'\n')
 
 
-projecta.to_excel(r'C:\Users\DELL\Desktop\孔繁阳\git统计\项目list.xlsx')
+projecta.to_excel(r'C:\Users\DELL\Desktop\XXX\git统计\项目list.xlsx')
 
 # 读取固定项目列表
-projectb = pd.read_excel(r'C:\Users\DELL\Desktop\孔繁阳\git统计\项目id.xlsx')
+projectb = pd.read_excel(r'C:\Users\DELL\Desktop\XXX\git统计\项目id.xlsx')
 
 
 projectc = pd.merge(projectb, projecta, on='project', how='left')
@@ -145,4 +145,4 @@ def excel(excelName):
 
 
 if __name__ == "__main__":
-    excel(r'C:\Users\DELL\Desktop\孔繁阳\git统计\gitlab.xlsx')
+    excel(r'C:\Users\DELL\Desktop\XXX\git统计\gitlab.xlsx')
